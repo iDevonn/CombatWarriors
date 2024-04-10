@@ -1,0 +1,275 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "DevHUB", HidePremium = false, SaveConfig = true, ConfigFolder = "", IntroText = "DevHUB"})
+    
+    --Values
+    _G.GloryNearby = true
+    _G.FarmKills = true
+    
+    --Functions
+    function GloryNearby()
+    while _G.GloryNearby == true do   
+    
+    Wait (0.1)
+    
+    local Players = game:GetService("Players")
+    local RemoteStorage = game:GetService("ReplicatedStorage"):WaitForChild("Remotes")
+    local GloryRemote = RemoteStorage:WaitForChild("Glory")
+    
+    for _, player in ipairs(Players:GetPlayers()) do
+        local args = {
+            [1] = player
+        }
+        GloryRemote:InvokeServer(unpack(args))
+    end
+
+    --
+
+    function FarmKills()
+    while _G.FarmKills == true do   
+    
+    Wait (0.1)
+
+    local Players = game:GetService("Players")
+    local RemoteStorage = game:GetService("ReplicatedStorage"):WaitForChild("Remotes")
+    local ReviveRemote = RemoteStorage:WaitForChild("Revive")
+    
+    for _, player in ipairs(Players:GetPlayers()) do
+        local args = {
+            [1] = Players:WaitForChild(player.Name)
+        }
+        ReviveRemote:InvokeServer(unpack(args))
+    end
+
+
+    function InfiniteYield()
+
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+
+        
+            end
+
+
+    function Animation1()
+
+        local args = {
+            [1] = "Glory_1",
+            [2] = "M",
+            [3] = "Change"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GloryData"):InvokeServer(unpack(args))
+                
+            end
+
+
+    function Animation2()
+
+        local args = {
+            [1] = "Glory_2",
+            [2] = "M",
+            [3] = "Change"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GloryData"):InvokeServer(unpack(args))
+                
+            end
+
+
+    function Animation3()
+
+        local args = {
+            [1] = "Glory_3",
+            [2] = "M",
+            [3] = "Change"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GloryData"):InvokeServer(unpack(args))
+                
+            end
+
+
+    function Animation4()
+
+        local args = {
+            [1] = "Glory_4",
+            [2] = "M",
+            [3] = "Change"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GloryData"):InvokeServer(unpack(args))
+                
+            end
+
+
+    function Animation5()
+
+        local args = {
+            [1] = "Glory_5",
+            [2] = "M",
+            [3] = "Change"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GloryData"):InvokeServer(unpack(args))
+                
+            end
+
+
+
+    function Animation6()
+
+        local args = {
+            [1] = "Glory_6",
+            [2] = "M",
+            [3] = "Change"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GloryData"):InvokeServer(unpack(args))
+                
+            end
+
+
+
+    function Animation7()
+
+        local args = {
+            [1] = "Glory_7",
+            [2] = "M",
+            [3] = "Change"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GloryData"):InvokeServer(unpack(args))
+                
+            end
+
+
+
+    function Animation8()
+
+        local args = {
+            [1] = "Glory_8",
+            [2] = "M",
+            [3] = "Change"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GloryData"):InvokeServer(unpack(args))
+                
+            end
+
+
+    function Animation9()
+
+        local args = {
+            [1] = "Glory_9",
+            [2] = "M",
+            [3] = "Change"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GloryData"):InvokeServer(unpack(args))
+                
+            end
+
+
+--
+    -- PlayerTab
+    local PlayerTab = Window:MakeTab({
+        Name = "TROLL MENU",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+            --PlayerButtons
+            PlayerTab:AddButton({
+                Name = "InfiniteYield",
+                Callback = function()
+                          InfiniteYield()
+                  end    
+            })
+
+            PlayerTab:AddButton({
+                Name = "Animation1",
+                Callback = function()
+                          Animation1()
+                  end    
+            })
+
+            PlayerTab:AddButton({
+                Name = "Animation2",
+                Callback = function()
+                          Animation2()
+                  end    
+            })
+
+            PlayerTab:AddButton({
+                Name = "Animation3",
+                Callback = function()
+                          Animation3()
+                  end    
+            })
+
+            PlayerTab:AddButton({
+                Name = "Animation4",
+                Callback = function()
+                          Animation4()
+                  end    
+            })
+
+            PlayerTab:AddButton({
+                Name = "Animation5",
+                Callback = function()
+                          Animation5()
+                  end    
+            })
+
+            PlayerTab:AddButton({
+                Name = "Animation6",
+                Callback = function()
+                          Animation6()
+                  end    
+            })
+
+            PlayerTab:AddButton({
+                Name = "Animation7",
+                Callback = function()
+                          Animation7()
+                  end    
+            })
+
+            PlayerTab:AddButton({
+                Name = "Animation8",
+                Callback = function()
+                          Animation8()
+                  end    
+            })
+
+            PlayerTab:AddButton({
+                Name = "Animation9",
+                Callback = function()
+                          Animation9()
+                  end    
+            })
+
+--PlayerToggles
+PlayerTab:AddToggle({
+    Name = "Glory Nearby",
+    Default = false,
+    Callback = function(Value)
+    _G.GloryNearby = Value
+    GloryNearby()
+    end
+    })
+
+--
+
+PlayerTab:AddToggle({
+    Name = "Farm Kills",
+    Default = false,
+    Callback = function(Value)
+    _G.FarmKills = Value
+    FarmKills()
+    end
+})
+   
+--
+
+    end
+    OrionLib:Init()
