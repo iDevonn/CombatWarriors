@@ -13,7 +13,7 @@ local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
-local maxDistance = 20 -- Maximum distance to consider a player as "nearby"
+local maxDistance = 10 -- Maximum distance to consider a player as "nearby"
 
 local function isPlayerNearby(otherPlayer)
     local otherCharacter = otherPlayer.Character
