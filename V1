@@ -5,37 +5,37 @@ local Window = OrionLib:MakeWindow({Name = "DevHUB", HidePremium = false, SaveCo
 -- Functions
 local function GloryNearby()
     
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local RemoteStorage = ReplicatedStorage:WaitForChild("Remotes")
-local GloryRemote = RemoteStorage:WaitForChild("Glory")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local RemoteStorage = ReplicatedStorage:WaitForChild("Remotes")
+    local GloryRemote = RemoteStorage:WaitForChild("Glory")
 
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
-local maxDistance = 50 -- Maximum distance to consider a player as "nearby"
+    local maxDistance = 10 -- Maximum distance to consider a player as "nearby"
 
-local function isPlayerNearby(otherPlayer)
-    local otherCharacter = otherPlayer.Character
-    if otherCharacter then
-        local otherHumanoidRootPart = otherCharacter:FindFirstChild("HumanoidRootPart")
-        if otherHumanoidRootPart then
-            local distance = (humanoidRootPart.Position - otherHumanoidRootPart.Position).Magnitude
-            return distance <= maxDistance
+    local function isPlayerNearby(otherPlayer)
+        local otherCharacter = otherPlayer.Character
+        if otherCharacter then
+            local otherHumanoidRootPart = otherCharacter:FindFirstChild("HumanoidRootPart")
+            if otherHumanoidRootPart then
+                local distance = (humanoidRootPart.Position - otherHumanoidRootPart.Position).Magnitude
+                return distance <= maxDistance
+            end
         end
+        return false
     end
-    return false
-end
 
-for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-    if otherPlayer ~= player and isPlayerNearby(otherPlayer) then
-        GloryRemote:InvokeServer(otherPlayer)
+    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+        if otherPlayer ~= player and isPlayerNearby(otherPlayer) then
+            GloryRemote:InvokeServer(otherPlayer)
+        end
     end
 end
 
 
 local function FarmKills()
-
     local Players = game:GetService("Players")
     local RemoteStorage = game:GetService("ReplicatedStorage"):WaitForChild("Remotes")
     local ReviveRemote = RemoteStorage:WaitForChild("Revive")
@@ -148,10 +148,10 @@ PlayerTab:AddButton({
 })
 
 PlayerTab:AddButton({
-    Name = "Animation9",
-    Callback = function()
-        ChangeGloryAnimation("Glory_9")
-    end    
+  Name = "Animation9",
+  Callback = function()
+      ChangeGloryAnimation("Glory_9")
+  end    
 })
 
 OrionLib:Init()
