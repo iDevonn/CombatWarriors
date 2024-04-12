@@ -5,15 +5,31 @@ local Window = OrionLib:MakeWindow({Name = "DevHUB", HidePremium = false, SaveCo
 -- Functions
 local function GloryNearby()
     
-    local Players = game:GetService("Players")
-    local RemoteStorage = game:GetService("ReplicatedStorage"):WaitForChild("Remotes")
-    local GloryRemote = RemoteStorage:WaitForChild("Glory")
-    
-    for _, player in ipairs(Players:GetPlayers()) do
-        local args = {
-            [1] = player
-        }
-        GloryRemote:InvokeServer(unpack(args))
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RemoteStorage = ReplicatedStorage:WaitForChild("Remotes")
+local GloryRemote = RemoteStorage:WaitForChild("Glory")
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local maxDistance = 50 -- Maximum distance to consider a player as "nearby"
+
+local function isPlayerNearby(otherPlayer)
+    local otherCharacter = otherPlayer.Character
+    if otherCharacter then
+        local otherHumanoidRootPart = otherCharacter:FindFirstChild("HumanoidRootPart")
+        if otherHumanoidRootPart then
+            local distance = (humanoidRootPart.Position - otherHumanoidRootPart.Position).Magnitude
+            return distance <= maxDistance
+        end
+    end
+    return false
+end
+
+for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+    if otherPlayer ~= player and isPlayerNearby(otherPlayer) then
+        GloryRemote:InvokeServer(otherPlayer)
     end
 end
 
