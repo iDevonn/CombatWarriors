@@ -13,7 +13,7 @@ local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
-local maxDistance = 10 -- Maximum distance to consider a player as "nearby"
+local maxDistance = 50 -- Maximum distance to consider a player as "nearby"
 
 local function isPlayerNearby(otherPlayer)
     local otherCharacter = otherPlayer.Character
@@ -27,12 +27,12 @@ local function isPlayerNearby(otherPlayer)
     return false
 end
 
-
 for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
     if otherPlayer ~= player and isPlayerNearby(otherPlayer) then
         GloryRemote:InvokeServer(otherPlayer)
     end
 end
+
 
 local function FarmKills()
 
