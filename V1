@@ -27,6 +27,7 @@ local function isPlayerNearby(otherPlayer)
     return false
 end
 
+
 for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
     if otherPlayer ~= player and isPlayerNearby(otherPlayer) then
         GloryRemote:InvokeServer(otherPlayer)
